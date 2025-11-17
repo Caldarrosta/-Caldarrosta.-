@@ -1,21 +1,19 @@
 {
   "text": "Ciao Viola, Tanti auguri di buon compleanno, questo è un piccolo pensiero per te, uno spazio dove poter ricordare le nostre fantastiche avventure (per piccoli)",
   "images": [
-     { "file": "images/foto1.JPG", "caption": "Il nostro primo viaggio" },
-    { "file": "images/foto2.JPG", "caption": "Con le nostre migliori amiche" },
-    { "file": "images/foto3.JPG", "caption": "quando il bimbo napoletano con la faina vide il pancione" },
-    { "file": "images/foto4.JPG", "caption": "skincare in casa da Vincenzo (Sopra polleria)" },
-    { "file": "images/foto5.JPG", "caption": "PO....MPEIIIII" },
-    { "file": "images/foto6.JPG", "caption": "✨" },
-    { "file": "images/foto7.JPG", "caption": "Alle terme a sobbollire" },
-    { "file": "images/foto8.JPG", "caption": "Io che reggo la torre di Siena" },
-    { "file": "images/foto9.JPG", "caption": "i lunghi viaggi in treno" },
-    { "file": "images/foto10.JPG", "caption": "la bebe dormiente (dovevo)" },
-    { "file": "images/foto11.JPG", "caption": "A Naboliiii" },
-    { "file": "images/foto12.JPG", "caption": "Noi al Mayerrr" },
-    { "file": "images/foto13.JPG", "caption": "Noi al Lagoooo" },
-    { "file": "images/foto14.JPG", "caption": "✨" }
+    { "file": "images/foto1.jpg", "caption": "Il nostro primo viaggio" },
+    { "file": "images/foto2.jpg", "caption": "Con le nostre migliori amiche" },
+    { "file": "images/foto3.jpg", "caption": "quando il bimbo napoletano con la faina vide il pancione" },
+    { "file": "images/foto4.jpg", "caption": "skincare in casa da Vincenzo (Sopra polleria)" },
+    { "file": "images/foto5.jpg", "caption": "PO....MPEIIIII" },
+    { "file": "images/foto6.jpg", "caption": "✨" },
+    { "file": "images/foto7.jpg", "caption": "Alle terme a sobbollire" },
+    { "file": "images/foto8.jpg", "caption": "Io che reggo la torre di Siena" },
+    { "file": "images/foto9.jpg", "caption": "i lunghi viaggi in treno" },
+    { "file": "images/foto10.jpg", "caption": "la bebe dormiente (dovevo)" },
+    { "file": "images/foto11.jpg", "caption": "A Naboliiii" },
+    { "file": "images/foto12.jpg", "caption": "Noi al Mayerrr" },
+    { "file": "images/foto13.jpg", "caption": "Noi al Lagoooo" },
+    { "file": "images/foto14.jpg", "caption": "✨" }
   ]
 }
-
-
