@@ -26,7 +26,7 @@ let captionEl;
 let prevBtn;
 let nextBtn;
 let heartsLayer;
-let indicatorsContainer; // puntini
+let indicatorsContainer;
 
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -53,7 +53,7 @@ function main() {
         heartsLayer = document.getElementById('heartsLayer');
 
         addSwipeSupport();
-        createIndicators(); // crea puntini
+        createIndicators();
 
         typeText(data.text, onTypingComplete);
     });
@@ -66,18 +66,17 @@ function getData() {
             console.error(response.statusText);
             return;
         }
-        const result = (yield response.json());
-        return result;
+        return yield response.json();
     });
 }
 
 function typeText(text, onComplete) {
     greetingEl.textContent = '';
     let typedIndex = 0;
-    const words = text;
+
     const timer = setInterval(() => {
-        greetingEl.textContent = words.slice(0, ++typedIndex);
-        if (typedIndex >= words.length) {
+        greetingEl.textContent = text.slice(0, ++typedIndex);
+        if (typedIndex >= text.length) {
             clearInterval(timer);
             onComplete?.();
         }
@@ -103,17 +102,15 @@ function showGallery() {
 }
 
 function showImage(i) {
-    if (!data.images || data.images.length === 0)
-        return;
+    if (!data.images || data.images.length === 0) return;
 
     galleryIndex = ((i % data.images.length) + data.images.length) % data.images.length;
     const item = data.images[galleryIndex];
 
-    updateIndicators(); // aggiorna puntini
-
+    updateIndicators();
     imageWrapper.innerHTML = '';
 
-    // ⭐ VIDEO
+    // ⭐ VIDEO SUPPORT
     if (item.type === "video") {
         const video = document.createElement("video");
         video.src = item.file;
@@ -126,12 +123,15 @@ function showImage(i) {
         video.style.maxHeight = "100%";
         video.style.objectFit = "contain";
 
+        // ⭐ FIX: permette alle frecce / swipe di funzionare
+        video.style.pointerEvents = "none";
+
         imageWrapper.appendChild(video);
         captionEl.textContent = item.caption || "";
         return;
     }
 
-    // ⭐ IMMAGINI (CODICE ORIGINALE)
+    // ⭐ IMMAGINE SUPPORT (codice originale)
     const img = new Image();
     img.alt = item.caption || ('Immagine ' + (galleryIndex + 1));
     img.loading = 'lazy';
@@ -149,9 +149,8 @@ function showImage(i) {
     captionEl.textContent = item.caption || '';
 }
 
-
 // ------------------------------------------------------------
-// ⭐ PUNTINI DENTRO LA FOTO (Instagram style)
+// ⭐ PUNTINI STILE INSTAGRAM (dentro la foto)
 // ------------------------------------------------------------
 function createIndicators() {
     const carousel = document.getElementById("carousel");
@@ -163,7 +162,7 @@ function createIndicators() {
     indicatorsContainer.style.transform = 'translateX(-50%)';
     indicatorsContainer.style.display = 'flex';
     indicatorsContainer.style.gap = '6px';
-    indicatorsContainer.style.zIndex = '50'; // sotto frecce, davanti immagine
+    indicatorsContainer.style.zIndex = '50';
 
     data.images.forEach(() => {
         const dot = document.createElement('div');
@@ -179,15 +178,14 @@ function createIndicators() {
 
 function updateIndicators() {
     if (!indicatorsContainer) return;
-    const dots = indicatorsContainer.children;
 
+    const dots = indicatorsContainer.children;
     for (let i = 0; i < dots.length; i++) {
         dots[i].style.background =
             i === galleryIndex ? 'white' : 'rgba(255,255,255,0.3)';
     }
 }
 // ------------------------------------------------------------
-
 
 function addSwipeSupport() {
     let startX = null;
@@ -201,8 +199,7 @@ function addSwipeSupport() {
     }, { passive: true });
 
     carousel.addEventListener('touchend', (e) => {
-        if (startX === null)
-            return;
+        if (startX === null) return;
 
         const t = e.changedTouches[0];
         const dx = t.clientX - startX;
@@ -219,9 +216,7 @@ function addSwipeSupport() {
     let lastTap = 0;
     carousel.addEventListener('touchend', (e) => {
         const now = Date.now();
-        if (now - lastTap < 300) {
-            launchHearts(HEART_FALL_COUNT);
-        }
+        if (now - lastTap < 300) launchHearts(HEART_FALL_COUNT);
         lastTap = now;
     });
 }
